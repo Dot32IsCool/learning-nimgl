@@ -15,6 +15,8 @@ proc main() =
 	glfwWindowHint(GLFWOpenglForwardCompat, GLFW_TRUE) # Used for Mac
 	glfwWindowHint(GLFWOpenglProfile, GLFW_OPENGL_CORE_PROFILE)
 	glfwWindowHint(GLFWResizable, GLFW_TRUE)
+	# glfwWindowHint(GLFWMaximized, GLFW_TRUE)
+	glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE)
 
 	let w: GLFWWindow = glfwCreateWindow(800, 600, "Learning NimGL")
 	if w == nil:
@@ -27,7 +29,8 @@ proc main() =
 
 	while not w.windowShouldClose:
 		glfwPollEvents()
-		glClearColor(0.68f, 1f, 0.34f, 1f)
+		# glClearColor(0.17f, 0.17f, 0.17f, 1f)
+		glClearColor(0f, 0f, 0f, 0.3f)
 		glClear(GL_COLOR_BUFFER_BIT)
 		w.swapBuffers()
 
